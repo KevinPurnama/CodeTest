@@ -4,16 +4,38 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.sass'],
+  providers: []
 })
 export class AppComponent {
-  title = 'code-test-ui';
+  public title : string = 'Code-Test-UI';
 
-  public modalRef: BsModalRef = new BsModalRef(); // {1}
-  constructor(private modalService: BsModalService) {} // {2}
+  public minDate : Date;
+  public maxDate : Date;
+  public dobValue : Date;
+
+  // TODO: dynamically read in via supporting service
+  public occupations = [
+    { name: 'cleaner' },
+    { name: 'doctor' },
+    { name: 'author' },
+    { name: 'farmer' },
+    { name: 'mechanic' },
+    { name: 'florist' }
+  ]
+  
+  public modalRef: BsModalRef = new BsModalRef(); 
+
+  constructor(private modalService: BsModalService) {
+    var currentDate : Date = new Date();
+
+    this.minDate = new Date(currentDate.getFullYear() - 100, currentDate.getMonth(), currentDate.getDate());
+    this.maxDate = new Date(currentDate.getFullYear() - 18, currentDate.getMonth(), currentDate.getDate());
+    this.dobValue = this.maxDate;
+  }
 
   public openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template); // {3}
+    this.modalRef = this.modalService.show(template);
   }
 
 }

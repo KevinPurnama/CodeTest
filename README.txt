@@ -7,4 +7,6 @@ In this implementation, the following assumptions were made:
 - Names cannot contain numbers but can contain special symbols, for example "XÆA-Xii".
 - Customers should not be allowed to submit unrealistic data like negative insured sums, negative ages, date of birth beyond 100 years, and future dates.
 - Customers should not be allowed to submit mismatched birth dates and ages, with the age calculation to be based on the current system time.
+- Customer age can be limited to a maximum of 110 years.
+- Routing and subcomponents/pages won't be required as there is only one page.
 - Only basic UI window dressing is required to support the MVP.
