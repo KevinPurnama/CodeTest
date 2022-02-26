@@ -1,0 +1,61 @@
+<style></style>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <!-- no menubar -->
+    </div>
+  </div>
+</nav>
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-2 col-1"></div>
+    <div class="col-md-4 col-sm-8 col-10 text-center">
+      <form class="form-calculate-premium">
+        <img class="mb-4" src="https://www.tal.com.au/-/media/490b2a5a335f432f93776132c98c27e4.ashx" alt="" width="65" height="24">
+        <h1 class="h3 mb-3 font-weight-normal">To calculate a premium quote, please enter your details: </h1>
+        <label for="inputName" class="sr-only">Name</label>
+        <input type="text" id="inputName" class="form-control" placeholder="Kevin Purnama" required="" autofocus="">
+        <label for="inputAge" class="sr-only">Age</label>
+        <input type="number" id="inputNumber" class="form-control" placeholder="1" required="" min="1">
+        <label for="inputDoB" class="sr-only">Date Of Birth</label>
+        <input type="date" id="inputDoB" class="form-control" placeholder="" required="">
+        <label for="inputOccupation" class="sr-only">Occupation</label>
+        <input type="text" id="inputOccupation" class="form-control" placeholder="" required="">
+        <label for="inputDeathSumInsured" class="sr-only">Death Sum Insured</label>
+        <input type="number" id="inputDeathSumInsured" class="form-control" placeholder="1" required="" min="1">
+<!--
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="email.address@here.com">
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="debug">
+          </label>
+        </div>
+-->
+        <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="openModal(template)">Submit</button>
+        <p class="text-muted">Kevin Purnama © 2022</p>
+      </form>
+    </div>
+    <div class="col-md-4 col-sm-2 col-1"></div>
+  </div>
+  <div class="row">
+    <div class="text-center">
+        <ng-template #template>
+          <div class="modal-header">
+              <h4 class="modal-title pull-left">Validation Errors</h4>
+              <button type="button" class="close pull-right" 
+                      aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+          <div class="modal-body">
+              Validation
+          </div>
+        </ng-template>
+    </div>
+  </div>
+</main>
+
+
+<router-outlet></router-outlet>
