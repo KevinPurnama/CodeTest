@@ -27,12 +27,10 @@ describe('PremiumCalcComponent', () => {
 
     compatibleBirthDate = new Date(1983, 3, 2);
     var ageDifMs = Date.now() - compatibleBirthDate.getTime();
-    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    var ageDate = new Date(ageDifMs); 
     compatibleAge = Math.abs(ageDate.getUTCFullYear() - 1970) 
 
   });
-
-
 
   it('should create', () => {
     expect(component).toBeTruthy();

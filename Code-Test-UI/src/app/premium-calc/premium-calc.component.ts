@@ -13,10 +13,11 @@ import { Customer } from './premium-calc.model.customer';
 })
 export class PremiumCalcComponent implements OnInit {
 
-  //public premiumCalcForm: NgForm | null;
+  public premiumCalcForm?: NgForm;
 
   public customerInstance: Customer;
   public errorMessages: string [];
+  public calculatedPremium: number;
 
   public minDate : Date;
   public maxDate : Date;
@@ -35,6 +36,7 @@ export class PremiumCalcComponent implements OnInit {
   constructor(private _premiumCalcApiService: PremiumCalcApiService) { 
     this.customerInstance = new Customer();
     this.errorMessages = [];
+    this.calculatedPremium = 0;
 
     var currentDate : Date = new Date();
 

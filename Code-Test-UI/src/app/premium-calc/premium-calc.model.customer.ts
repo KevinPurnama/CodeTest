@@ -41,7 +41,7 @@ export class Customer {
         // validate year and DOB match
         if (this.dateOfBirth) {
             var ageDifMs = Date.now() - this.dateOfBirth.getTime();
-            var ageDate = new Date(ageDifMs); // miliseconds from epoch
+            var ageDate = new Date(ageDifMs); 
             if (Math.abs(ageDate.getUTCFullYear() - 1970) != this.age) {
                 validationErrors.push('Date of Birth does not match Age.');
             }

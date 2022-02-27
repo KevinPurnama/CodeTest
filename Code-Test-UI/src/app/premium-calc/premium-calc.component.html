@@ -1,7 +1,12 @@
 <div class="row" *ngIf="errorMessages && errorMessages.length > 0">
     <div class="col-lg-12 alert alert-danger" role="alert">
         <h4>Errors</h4>
-        <div class="row error-msg" *ngFor="let msg of errorMessages">Error Message: {{msg}} </div>
+        <div class="row error-msg" *ngFor="let msg of errorMessages">Error Message: {{msg}}</div>
+    </div>
+</div>
+<div class="row" *ngIf="(!errorMessages || errorMessages.length == 0) && calculatedPremium > 0">
+     <div class="col-lg-12 alert alert-success" role="alert">
+        <h4>Premium Quote: ${{calculatedPremium}}</h4>
     </div>
 </div>
 <div class="row">
@@ -25,16 +30,17 @@
                 [(ngModel)]="customerInstance.dateOfBirth" name="age" 
                 [minDate]="minDate" [maxDate]="maxDate" [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD-MM-YYYY' }">
 
+        <label for="inputDeathSumInsured" class="sr-only">Death Sum Insured<span class="mandatory">*</span></label>
+        <input type="number" id="inputDeathSumInsured" class="form-control" [(ngModel)]="customerInstance.deathBenefit" name="deathBenefit"
+            placeholder="1" required="" min="1">
+
         <label for="inputOccupation" class="sr-only">Occupation<span class="mandatory">*</span></label>
         <div>
-        <select class="form-control" [(ngModel)]="customerInstance.occupation" name="occupation">
+        <select class="form-control" (change)="onSubmit(premiumCalcForm)" [(ngModel)]="customerInstance.occupation" name="occupation">
           <option [ngValue]="null" disabled selected>Select Occupation</option>
           <option *ngFor="let job of occupations" [ngValue]="job">{{ job | titlecase }}</option>
         </select>
         </div>
-        <label for="inputDeathSumInsured" class="sr-only">Death Sum Insured<span class="mandatory">*</span></label>
-        <input type="number" id="inputDeathSumInsured" class="form-control" [(ngModel)]="customerInstance.deathBenefit" name="deathBenefit"
-            placeholder="1" required="" min="1">
 <!--
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="email.address@here.com">
@@ -45,6 +51,5 @@
         </div>
 -->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-        <p class="text-muted">Kevin Purnama © 2022</p>
       </form>
 </div>
