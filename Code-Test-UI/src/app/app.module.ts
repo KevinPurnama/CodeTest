@@ -7,10 +7,12 @@ import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PremiumCalcComponent } from './premium-calc/premium-calc.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PremiumCalcComponent
   ],
   imports: [
     BrowserModule,
