@@ -12,22 +12,24 @@
   <div class="row">
     <div class="col-md-4 col-sm-2 col-1"></div>
     <div class="col-md-4 col-sm-8 col-10 text-center">
-      <app-premium-calc></app-premium-calc>
+      <app-premium-calc [modalFunction]="modalFunction"></app-premium-calc>
     </div>
     <div class="col-md-4 col-sm-2 col-1"></div>
   </div>
   <div class="row">
     <div class="text-center">
-        <ng-template #template>
+        <ng-template #modalTemplate>
           <div class="modal-header">
-              <h4 class="modal-title pull-left">Validation Errors</h4>
+              <h4 class="modal-title pull-left">Errors</h4>
               <button type="button" class="close pull-right" 
                       aria-label="Close" (click)="modalRef.hide()">
             <span aria-hidden="true">&times;</span>
           </button>
           </div>
           <div class="modal-body">
-              Validation
+            {{modalMsg}} 
+            <br>
+            To recalculate please reselect an occupation.
           </div>
         </ng-template>
     </div>

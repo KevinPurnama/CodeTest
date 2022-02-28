@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AppComponent } from './app.component';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,6 +18,7 @@ describe('AppComponent', () => {
         RouterTestingModule,
         BrowserModule,
         BrowserAnimationsModule,
+        HttpClientTestingModule,
         FormsModule,
         BsDatepickerModule.forRoot(),
         ModalModule.forRoot()

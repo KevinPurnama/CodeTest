@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 
 import { PremiumCalcApiService } from '../services/premium-calc-api.service';
 
 import { Customer } from './premium-calc.model.customer';
+import { MonthlyPremiumResponse } from './premium-calc.model.monthlyPremium';
 
 @Component({
   selector: 'app-premium-calc',
@@ -12,6 +13,8 @@ import { Customer } from './premium-calc.model.customer';
   providers: [ PremiumCalcApiService ]
 })
 export class PremiumCalcComponent implements OnInit {
+
+  @Input() modalFunction?: (premium: number, errors: string[]) => void;
 
   public premiumCalcForm?: NgForm;
 
@@ -29,7 +32,7 @@ export class PremiumCalcComponent implements OnInit {
     'doctor',
     'author' ,
     'farmer',
-    'mechhanic',
+    'mechanic',
     'florrist'
   ]
   
@@ -49,22 +52,47 @@ export class PremiumCalcComponent implements OnInit {
   }
 
   onSubmit(input: NgForm) {
+    this.errorMessages = [];
+    this.calculatedPremium = 0;
     if (input.valid) {
-      this.errorMessages = [];
       var errors: string [] = this.customerInstance.validate();
       if (errors.length == 0) {
         // calculate premium
-        var premium = this._premiumCalcApiService.calculatePremiumForCustomer(this.customerInstance);
+        this._premiumCalcApiService.calculatePremiumForCustomer(this.customerInstance).subscribe({
+          next: (monthlyPremium) => {
+            if (monthlyPremium.premium) {
+              this.calculatedPremium = monthlyPremium.premium;
+              if (this.modalFunction) {
+                this.modalFunction(this.calculatedPremium, []);
+              }
+            } else {
+              if (this.modalFunction) {
+                this.modalFunction(0, ["Server failed to calculate and return a monthly premium."]);
+              }
+            }
+          },
+          error: (e) => {
+            this.errorMessages.push("Error calculating premium: " + e)
+            if (this.modalFunction) {
+              this.modalFunction(0, this.errorMessages);
+              this.customerInstance.occupation = 'null';
+            }
+          }
+        });
       }
       else 
       {
-        // bubble up errors
+        // bubble up validation errors
         this.errorMessages = errors;
       }
     } else {
       this.errorMessages = [
         "Please enter all mandatory values."
       ]
+    }
+    if (this.errorMessages.length > 0 && this.modalFunction) {
+      this.modalFunction(0, this.errorMessages);
+      this.customerInstance.occupation = 'null';
     }
   }
 

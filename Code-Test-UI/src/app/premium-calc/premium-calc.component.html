@@ -36,7 +36,7 @@
 
         <label for="inputOccupation" class="sr-only">Occupation<span class="mandatory">*</span></label>
         <div>
-        <select class="form-control" (change)="onSubmit(premiumCalcForm)" [(ngModel)]="customerInstance.occupation" name="occupation">
+        <select class="form-control" (input)="onSubmit(premiumCalcForm)" [(ngModel)]="customerInstance.occupation" name="occupation">
           <option [ngValue]="null" disabled selected>Select Occupation</option>
           <option *ngFor="let job of occupations" [ngValue]="job">{{ job | titlecase }}</option>
         </select>

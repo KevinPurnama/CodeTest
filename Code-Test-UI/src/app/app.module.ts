@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+
 import { ModalModule } from 'ngx-bootstrap/modal'
 import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
@@ -18,6 +20,7 @@ import { PremiumCalcComponent } from './premium-calc/premium-calc.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
     ModalModule.forRoot()
