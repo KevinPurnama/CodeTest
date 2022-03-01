@@ -4,7 +4,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { PremiumCalcApiService } from '../services/premium-calc-api.service';
 
 import { Customer } from './premium-calc.model.customer';
-import { MonthlyPremiumResponse } from './premium-calc.model.monthlyPremium';
+import { MonthlyPremiumResponse } from './premium-calc.model.monthlyPremiumResponse';
 
 @Component({
   selector: 'app-premium-calc',
@@ -48,7 +48,28 @@ export class PremiumCalcComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.occupations = this._premiumCalcApiService.getListOfOccupations();
+    this._premiumCalcApiService.getListOfOccupations().subscribe({
+      next: (occupationResults) => {
+        if (occupationResults.occupations) {
+          if (occupationResults.occupations.length > 0) {
+            this.occupations = occupationResults.occupations;
+            return;
+          }
+        } 
+        this.errorMessages.push("Error resulting in zero occupations available for selection.");
+        if (this.modalFunction) {
+          this.modalFunction(0, this.errorMessages);
+          this.customerInstance.occupation = 'null';
+        }
+      },
+      error: (e) => {
+        this.errorMessages.push("Error retrieving selectable occupations: " + e);
+        if (this.modalFunction) {
+          this.modalFunction(0, this.errorMessages);
+          this.customerInstance.occupation = 'null';
+        }
+      }
+    });
   }
 
   onSubmit(input: NgForm) {

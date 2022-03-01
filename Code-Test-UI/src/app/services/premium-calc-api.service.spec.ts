@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { Customer } from '../premium-calc/premium-calc.model.customer';
-import { MonthlyPremiumResponse } from '../premium-calc/premium-calc.model.monthlyPremium';
+import { MonthlyPremiumResponse } from '../premium-calc/premium-calc.model.monthlyPremiumResponse';
 
 import { PremiumCalcApiService } from './premium-calc-api.service';
 
@@ -44,7 +44,7 @@ describe('PremiumCalcApiService', () => {
       }
     });
 
-    const req = httpMock.expectOne(environment.apiEndpoint + 'calculatePremium');
+    const req = httpMock.expectOne(environment.apiEndpoint + 'CalculateMonthlyPremium');
     expect(req.request.method).toEqual('POST');
     
     const mockResponse = {
@@ -70,7 +70,7 @@ describe('PremiumCalcApiService', () => {
       }
     });
 
-    const req = httpMock.expectOne(environment.apiEndpoint + 'calculatePremium');
+    const req = httpMock.expectOne(environment.apiEndpoint + 'CalculateMonthlyPremium');
     expect(req.request.method).toEqual('POST');
     
     const mockResponse = {

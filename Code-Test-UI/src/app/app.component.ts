@@ -25,16 +25,16 @@ export class AppComponent {
 
   public triggerModal(premium: number, errors: string []) : void {
     if (premium && premium > 0) {
-      this.modalMsg = "Your monthly premium is " + premium;
+      this.modalMsg = "Your monthly premium is $" + premium;
     } else {
-      this.modalMsg = errors.length + ' errors encountered.';
+      var errorText = errors.length > 1 ? ' errors encountered.' : ' error encountered.'
+      this.modalMsg = errors.length + errorText;
     }
     if (this.modalTemplate) {
       this.openModal(this.modalTemplate);
     }
   };
 
-  // "openModal(template)"
   public openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
