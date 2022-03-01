@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Code_Test.Domain.Models
+﻿namespace Code_Test_API.Models
 {
-    public class Customer
+    public class MonthlyPremiumRequest
     {
         public string Name { get; set; }
         public int Age { get; set; }
@@ -14,7 +8,6 @@ namespace Code_Test.Domain.Models
         public string Occupation { get; set; }
         public int DeathBenefit { get; set; }
 
-        public Customer() { }
-
+        public MonthlyPremiumRequest() { }
     }
 }

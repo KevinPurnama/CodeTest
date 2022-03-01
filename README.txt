@@ -12,3 +12,4 @@ In this implementation, the following assumptions were made:
 - Only basic UI window dressing is required to support the MVP. A purchase path style (step-by-step input prompt) was considered due to the fact that auto-submit was supposed to be triggered on selection of Occupation, however for simplicity and ease of testing I opted for the more conventional form layout with Occupation placed as the last field to help direct the course of user interaction.
 - Generating a database is outside the scope of this exercise. A database will be simulated in memory to drive the premium calculations on the server side.
 - Only a subset of test cases is required to demonstrate capability. Due to time constaints not all positive, negative and edge case scenarios will be implemented as unit tests.
+- The list of Occupation names is dynamic data and therefore it should not be represented as an enumeration in the system.

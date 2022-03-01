@@ -93,6 +93,19 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Code-Test.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1"
+        },
+        "compile": {
+          "bin/placeholder/Code-Test.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Code-Test.Domain.dll": {}
+        }
       }
     }
   },
@@ -305,11 +318,17 @@
         "swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "Code-Test.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Code-Test.Domain/Code-Test.Domain.csproj",
+      "msbuildProject": "../Code-Test.Domain/Code-Test.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "AutoMapper >= 11.0.1",
+      "Code-Test.Domain >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -339,7 +358,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Domain\\Code-Test.Domain.csproj": {
+              "projectPath": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Domain\\Code-Test.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
