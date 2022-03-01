@@ -4,14 +4,85 @@
     "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Test\\Code-Test.Test.csproj": {}
   },
   "projects": {
-    "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Test\\Code-Test.Test.csproj": {
+    "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test-API\\Code-Test-API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Test\\Code-Test.Test.csproj",
-        "projectName": "Code-Test.Test",
-        "projectPath": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Test\\Code-Test.Test.csproj",
+        "projectUniqueName": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test-API\\Code-Test-API.csproj",
+        "projectName": "Code-Test-API",
+        "projectPath": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test-API\\Code-Test-API.csproj",
         "packagesPath": "C:\\Users\\Internet1.TransformerChi\\.nuget\\packages\\",
-        "outputPath": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Test\\obj\\",
+        "outputPath": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test-API\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Internet1.TransformerChi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Domain\\Code-Test.Domain.csproj": {
+                "projectPath": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Domain\\Code-Test.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Domain\\Code-Test.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Domain\\Code-Test.Domain.csproj",
+        "projectName": "Code-Test.Domain",
+        "projectPath": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Domain\\Code-Test.Domain.csproj",
+        "packagesPath": "C:\\Users\\Internet1.TransformerChi\\.nuget\\packages\\",
+        "outputPath": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Internet1.TransformerChi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,9 +111,80 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Test\\Code-Test.Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Test\\Code-Test.Test.csproj",
+        "projectName": "Code-Test.Test",
+        "projectPath": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Test\\Code-Test.Test.csproj",
+        "packagesPath": "C:\\Users\\Internet1.TransformerChi\\.nuget\\packages\\",
+        "outputPath": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Test\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Internet1.TransformerChi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test-API\\Code-Test-API.csproj": {
+                "projectPath": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test-API\\Code-Test-API.csproj"
+              },
+              "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Domain\\Code-Test.Domain.csproj": {
+                "projectPath": "C:\\Sites\\CodeTest\\Code-Test-API\\Code-Test.Domain\\Code-Test.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.11.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.17.1, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
