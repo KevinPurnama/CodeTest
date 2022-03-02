@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "28ed2b22-8c58-4214-8191-3dc867fdbc29": {
+      "ProjectGuid": "28ed2b22-8c58-4214-8191-3dc867fdbc29",
+      "DisplayName": "Code-Test-API",
+      "ColorIndex": 0
+    },
+    "8a8be2a6-bd94-4881-9993-d36e303e3452": {
+      "ProjectGuid": "8a8be2a6-bd94-4881-9993-d36e303e3452",
+      "DisplayName": "Code-Test.Test",
+      "ColorIndex": 1
+    },
+    "26e25087-6b0b-4d6f-a4d5-da61acd8ddac": {
+      "ProjectGuid": "26e25087-6b0b-4d6f-a4d5-da61acd8ddac",
+      "DisplayName": "Code-Test.Domain",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
