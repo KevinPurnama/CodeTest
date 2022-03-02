@@ -24,16 +24,14 @@ export class PremiumCalcComponent implements OnInit {
 
   public minDate : Date;
   public maxDate : Date;
-  //public dobValue : Date;
 
-  // TODO: dynamically read in via supporting service
   public occupations = [
     'cleaner',
     'doctor',
     'author' ,
     'farmer',
     'mechanic',
-    'florrist'
+    'florist'
   ]
   
   constructor(private _premiumCalcApiService: PremiumCalcApiService) { 

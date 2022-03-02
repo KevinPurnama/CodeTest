@@ -2,7 +2,6 @@ C:\Sites\CodeTest\Code-Test-API\Code-Test.Domain\bin\Debug\net6.0\Code-Test.Doma
 C:\Sites\CodeTest\Code-Test-API\Code-Test.Domain\bin\Debug\net6.0\Code-Test.Domain.dll
 C:\Sites\CodeTest\Code-Test-API\Code-Test.Domain\bin\Debug\net6.0\ref\Code-Test.Domain.dll
 C:\Sites\CodeTest\Code-Test-API\Code-Test.Domain\bin\Debug\net6.0\Code-Test.Domain.pdb
-C:\Sites\CodeTest\Code-Test-API\Code-Test.Domain\obj\Debug\net6.0\Code-Test.Domain.csproj.AssemblyReference.cache
 C:\Sites\CodeTest\Code-Test-API\Code-Test.Domain\obj\Debug\net6.0\Code-Test.Domain.csproj.ResolveComReference.cache
 C:\Sites\CodeTest\Code-Test-API\Code-Test.Domain\obj\Debug\net6.0\Code-Test.Domain.GeneratedMSBuildEditorConfig.editorconfig
 C:\Sites\CodeTest\Code-Test-API\Code-Test.Domain\obj\Debug\net6.0\Code-Test.Domain.AssemblyInfoInputs.cache

@@ -114,3 +114,7 @@ C:\Sites\CodeTest\Code-Test-API\Code-Test.Test\bin\Debug\net6.0\Code-Test-API.dl
 C:\Sites\CodeTest\Code-Test-API\Code-Test.Test\bin\Debug\net6.0\Code-Test.Domain.dll
 C:\Sites\CodeTest\Code-Test-API\Code-Test.Test\bin\Debug\net6.0\Code-Test-API.pdb
 C:\Sites\CodeTest\Code-Test-API\Code-Test.Test\bin\Debug\net6.0\Code-Test.Domain.pdb
+C:\Sites\CodeTest\Code-Test-API\Code-Test.Test\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Sites\CodeTest\Code-Test-API\Code-Test.Test\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Sites\CodeTest\Code-Test-API\Code-Test.Test\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Sites\CodeTest\Code-Test-API\Code-Test.Test\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll

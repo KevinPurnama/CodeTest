@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Microsoft.EntityFrameworkCore;
-
 namespace Code_Test.Domain.DataModels
 {
-    public class Occupation
+    public class OccupationRating
     {
-        public string Name { get; set; }
-        public string Rating {get; set;}
+        [System.ComponentModel.DataAnnotations.Key] 
+        public string Rating { get; set; }
+        public double Factor { get; set; }
+
     }
 }

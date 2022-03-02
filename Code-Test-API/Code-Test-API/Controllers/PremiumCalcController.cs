@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
 using AutoMapper;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -25,18 +26,19 @@ namespace Code_Test_API.Controllers
         }
 
         [HttpPost(Name = "CalculateMonthlyPremium")]
-        public async Task<MonthlyPremiumResponse> CalculateMonthlyPremium(MonthlyPremiumRequest customerRequest)
+        public async Task<MonthlyPremiumResponse> CalculateMonthlyPremium([FromBody]MonthlyPremiumRequest customerRequest)
         {
             MonthlyPremium calculatedPremium = await _calculator.CalcMonthlyPremiumAsync(_mapper.Map<Customer>(customerRequest));
             MonthlyPremiumResponse response = _mapper.Map<MonthlyPremiumResponse>(calculatedPremium);
             return response;
         }
-/*
+
         [HttpGet(Name = "GetOccupations")]
         public async Task<GetOccupationsResponse> GetOccupationNames()
         {
-            return null;
+            Occupations occupations = await _calculator.GetOccupationsAsync();
+            return _mapper.Map<GetOccupationsResponse>(occupations);
         }
-*/
+
     }
 }

@@ -1,4 +1,19 @@
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+string corsLocalDevPolicy = "AllowLocalDev";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: corsLocalDevPolicy,
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:4200")
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+        });
+});
 
 // Add services to the container.
 var mapperConfig = new AutoMapper.MapperConfiguration(cfg =>
@@ -14,6 +29,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<Code_Test.Domain.FactorDBContext>(opt => opt.UseInMemoryDatabase("FactorDB"));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,6 +39,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(corsLocalDevPolicy);
 
 app.UseHttpsRedirection();
 

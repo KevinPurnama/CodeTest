@@ -28,3 +28,7 @@ C:\Sites\CodeTest\Code-Test-API\Code-Test-API\obj\Debug\net6.0\Code-Test-API.dll
 C:\Sites\CodeTest\Code-Test-API\Code-Test-API\obj\Debug\net6.0\ref\Code-Test-API.dll
 C:\Sites\CodeTest\Code-Test-API\Code-Test-API\obj\Debug\net6.0\Code-Test-API.pdb
 C:\Sites\CodeTest\Code-Test-API\Code-Test-API\obj\Debug\net6.0\Code-Test-API.genruntimeconfig.cache
+C:\Sites\CodeTest\Code-Test-API\Code-Test-API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Sites\CodeTest\Code-Test-API\Code-Test-API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Sites\CodeTest\Code-Test-API\Code-Test-API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Sites\CodeTest\Code-Test-API\Code-Test-API\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll

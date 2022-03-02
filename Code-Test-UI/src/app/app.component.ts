@@ -25,7 +25,7 @@ export class AppComponent {
 
   public triggerModal(premium: number, errors: string []) : void {
     if (premium && premium > 0) {
-      this.modalMsg = "Your monthly premium is $" + premium;
+      this.modalMsg = "Your monthly premium is $" + premium.toFixed(2);
     } else {
       var errorText = errors.length > 1 ? ' errors encountered.' : ' error encountered.'
       this.modalMsg = errors.length + errorText;

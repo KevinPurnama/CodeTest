@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
+using Code_Test.Domain.DataModels;
 using Code_Test.Domain.Models;
 
 namespace Code_Test.Domain
@@ -10,6 +12,16 @@ namespace Code_Test.Domain
     {
         const int monthlyDenominator = 12000;
 
+        private FactorDBContext _dbContext;
+
+        public PremiumCalcDomain(FactorDBContext dbContext)
+        {
+            _dbContext = dbContext;
+            if (_dbContext != null)
+            {
+                _dbContext.PopulateData();
+            }
+        }
         public List<string> ValidateCustomerData(Customer customerData)
         {
             List<string> errors = new List<string>();
@@ -46,12 +58,27 @@ namespace Code_Test.Domain
                         Errors = validationErrors
                     };
                 }
-                double factor = 1.75;
+                double factor = 0;
+                /*
+                factor = _dbContext.Occupations
+                    .Where(o => o.Name == customerData.Occupation.ToLower())
+                    .Include(o => o.Rating)
+                    .Select(o => o.Rating.Factor).First();
+                */
+                factor = _dbContext.OccupationRatings
+                    .Join(_dbContext.Occupations, r => r.Rating, o => o.Rating, (r, o) => new
+                    {
+                        JobName = o.Name, 
+                        Factor = r.Factor
+                    })
+                    .Where(o => o.JobName == customerData.Occupation.ToLower())
+                    .Select(o => o.Factor).First();
                 // (Death Cover amount * Occupation Rating Factor * Age) /1000 * 12
                 double premium = (customerData.DeathBenefit * factor * customerData.Age) / monthlyDenominator;
                 return new MonthlyPremium()
                 {
-                    Premium = premium
+                    Premium = premium,
+                    Errors = new List<string>()
                 };
             }
             catch (Exception e)
@@ -69,7 +96,26 @@ namespace Code_Test.Domain
 
         public async Task<Occupations> GetOccupationsAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<string> occupationNames = _dbContext.Occupations.Select(o => o.Name).ToList();
+                return new Occupations()
+                {
+                    OccupationNames = occupationNames,
+                    Errors = new List<string>()
+                };
+            } catch (Exception e)
+            {
+                return new Occupations()
+                {
+                    OccupationNames = new List<string>(),
+                    Errors = new List<string>()
+                    {
+                        "Error reading in occupation names: " + e.Message
+                    }
+                };
+            }
+
         }
     }
 }

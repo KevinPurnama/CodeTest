@@ -9,9 +9,10 @@ import { MonthlyPremiumResponse } from '../premium-calc/premium-calc.model.month
 
 import { environment } from '../../environments/environment';
 
+// 'application/x-www-form-urlencoded; charset=UTF-8'
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'
+    'Content-Type': 'application/json' 
   })
 };
 
@@ -20,7 +21,7 @@ const httpOptions = {
 })
 export class PremiumCalcApiService {
 
-  serviceURL: string = environment.apiEndpoint;
+  serviceURL: string = environment.apiEndpoint.concat(`PremiumCalc`);
 
   constructor(private _httpClient: HttpClient) { }
 
@@ -37,29 +38,25 @@ export class PremiumCalcApiService {
   public calculatePremiumForCustomer(customer: Customer): Observable<MonthlyPremiumResponse> {
     var result: MonthlyPremiumResponse = new MonthlyPremiumResponse();
     result.premium = 0;
-    return this._httpClient.post<MonthlyPremiumResponse>( this.serviceURL.concat(`CalculateMonthlyPremium`), { 
+    /*
+    return this._httpClient.post<MonthlyPremiumResponse>( this.serviceURL, { 
       body: JSON.stringify(customer), 
       httpOptions: httpOptions
     }).pipe(
       catchError(this.handleError)
     );
+    */
+    return this._httpClient.post( this.serviceURL, customer
+    ).pipe(
+      catchError(this.handleError)
+    );
+
   }
 
   public getListOfOccupations(): Observable<GetOccupationsResponse> {  
-    return this._httpClient.get<GetOccupationsResponse>( this.serviceURL.concat(`GetOccupations`)).pipe(
+    return this._httpClient.get<GetOccupationsResponse>( this.serviceURL).pipe(
       catchError(this.handleError)
     );
-/*
-    var result: string [] = [
-      'cleaner',
-      'doctor',
-      'author' ,
-      'farmer',
-      'mechanic',
-      'florist'
-    ];
-    return result;
-*/
   }
 
 }
